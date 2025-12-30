@@ -43,8 +43,24 @@ const getPostById = async (req, res) => {
   }
 };
 
+const getPostsBySender = async (req, res) => {
+  try {
+    const { sender } = req.query;
+    if (!sender) {
+      return res
+        .status(400)
+        .json({ message: "Sender query parameter is required" });
+    }
+    const posts = await Post.find({ sender }).sort({ createdAt: -1 });
+    res.json(posts);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 module.exports = {
   addPost,
   getAllPosts,
   getPostById,
+  getPostsBySender,
 };

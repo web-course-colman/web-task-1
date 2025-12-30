@@ -4,7 +4,12 @@ GET http://localhost:5000/api/posts
 ###
 
 ### Get Post by ID
-GET http://localhost:5000/api/posts/695425b24e93c18d9233f09a
+GET http://localhost:5000/post/695425b24e93c18d9233f09a
+
+###
+
+### Get Posts by Sender
+GET http://localhost:5000/post?sender=Sample%20Author
 
 ###
 
@@ -26,5 +31,10 @@ Content-Type: application/json
 {
   "message": "Missing sender"
 }
+
+###
+
+### Test: Get Posts by Sender without sender param (should return 400)
+GET http://localhost:5000/post
 
 ###

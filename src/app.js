@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 connectDB();
 
 // Routes
-app.use("/api/posts", require("./routes/posts"));
+app.use("/post", require("./routes/post"));
 
 // Default route
 app.get("/", (req, res) => res.send("API Running"));
