@@ -28,4 +28,9 @@ router.post("/", addPost);
 // @access  Public
 router.get("/", getPostsBySender);
 
+// @route   PUT /post/:id
+// @desc    Update post by ID
+// @access  Public
+router.put("/:id", updatePost);
+
 module.exports = router;
