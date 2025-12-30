@@ -1,5 +1,5 @@
 ### Get All Posts
-GET http://localhost:5000/api/posts
+GET http://localhost:5000/posts
 
 ###
 
@@ -13,8 +13,19 @@ GET http://localhost:5000/post?sender=Sample%20Author
 
 ###
 
+### Update a Post
+PUT http://localhost:5000/post/695425b24e93c18d9233f09a
+Content-Type: application/json
+
+{
+  "message": "Updated message content.",
+  "sender": "Updated Sender"
+}
+
+###
+
 ### Add a New Post
-POST http://localhost:5000/api/posts
+POST http://localhost:5000/posts
 Content-Type: application/json
 
 {
@@ -25,7 +36,7 @@ Content-Type: application/json
 ###
 
 ### Test: Add Post with Missing Fields (should return 400)
-POST http://localhost:5000/api/posts
+POST http://localhost:5000/posts
 Content-Type: application/json
 
 {
