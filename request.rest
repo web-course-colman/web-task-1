@@ -3,7 +3,6 @@ POST http://localhost:5000/api/posts
 Content-Type: application/json
 
 {
-  "title": "Sample Post Title",
-  "content": "This is the content of the sample post.",
-  "author": "Sample Author"
+  "message": "This is the content of the sample post.",
+  "sender": "Sample Author"
 }

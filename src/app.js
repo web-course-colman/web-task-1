@@ -11,9 +11,6 @@ app.use(bodyParser.json());
 // Connect Database
 connectDB();
 
-// Middleware
-app.use(express.json({ extended: false }));
-
 // Routes
 app.use("/api/posts", require("./routes/posts"));
 
