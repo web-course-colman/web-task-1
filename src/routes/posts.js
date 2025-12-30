@@ -1,5 +1,5 @@
 const express = require("express");
-const { addPost, getAllPosts } = require("../controllers/post");
+const { addPost, getAllPosts, getPostById } = require("../controllers/post");
 
 const router = express.Router();
 
@@ -7,6 +7,11 @@ const router = express.Router();
 // @desc    Get all posts
 // @access  Public
 router.get("/", getAllPosts);
+
+// @route   GET /api/posts/:id
+// @desc    Get post by ID
+// @access  Public
+router.get("/:id", getPostById);
 
 // @route   POST /api/posts
 // @desc    Add a new post

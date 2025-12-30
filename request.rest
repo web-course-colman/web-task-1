@@ -3,6 +3,11 @@ GET http://localhost:5000/api/posts
 
 ###
 
+### Get Post by ID
+GET http://localhost:5000/api/posts/695425b24e93c18d9233f09a
+
+###
+
 ### Add a New Post
 POST http://localhost:5000/api/posts
 Content-Type: application/json
@@ -11,3 +16,15 @@ Content-Type: application/json
   "message": "This is the content of the sample post.",
   "sender": "Sample Author"
 }
+
+###
+
+### Test: Add Post with Missing Fields (should return 400)
+POST http://localhost:5000/api/posts
+Content-Type: application/json
+
+{
+  "message": "Missing sender"
+}
+
+###
