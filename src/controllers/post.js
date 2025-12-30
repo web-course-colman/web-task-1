@@ -22,6 +22,16 @@ const addPost = async (req, res) => {
   }
 };
 
+const getAllPosts = async (req, res) => {
+  try {
+    const posts = await Post.find().sort({ createdAt: -1 });
+    res.json(posts);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 module.exports = {
   addPost,
+  getAllPosts,
 };

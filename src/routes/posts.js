@@ -1,7 +1,12 @@
 const express = require("express");
-const { addPost } = require("../controllers/post");
+const { addPost, getAllPosts } = require("../controllers/post");
 
 const router = express.Router();
+
+// @route   GET /api/posts
+// @desc    Get all posts
+// @access  Public
+router.get("/", getAllPosts);
 
 // @route   POST /api/posts
 // @desc    Add a new post
