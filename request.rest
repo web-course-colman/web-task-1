@@ -1,3 +1,5 @@
+## POSTS
+
 ### Get All Posts
 GET http://localhost:5000/post
 
@@ -33,7 +35,7 @@ Content-Type: application/json
   "sender": "Sample Author"
 }
 
-###
+## COMMENTS
 
 ### Create a new comment
 POST http://localhost:5000/comments
