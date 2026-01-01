@@ -12,7 +12,8 @@ app.use(bodyParser.json());
 connectDB();
 
 // Routes
-app.use("/post", require("./routes/post"));
+app.use("/post", require("./routes/posts"));
+app.use("/comments", require("./routes/comments"));
 
 // Default route
 app.get("/", (req, res) => res.send("API Running"));
