@@ -1,5 +1,7 @@
+## POSTS
+
 ### Get All Posts
-GET http://localhost:5000/posts
+GET http://localhost:5000/post
 
 ###
 
@@ -25,7 +27,7 @@ Content-Type: application/json
 ###
 
 ### Add a New Post
-POST http://localhost:5000/posts
+POST http://localhost:5000/post
 Content-Type: application/json
 
 {
@@ -33,19 +35,46 @@ Content-Type: application/json
   "sender": "Sample Author"
 }
 
-###
+## COMMENTS
 
-### Test: Add Post with Missing Fields (should return 400)
-POST http://localhost:5000/posts
+### Create a new comment
+POST http://localhost:5000/comments
 Content-Type: application/json
 
 {
-  "message": "Missing sender"
+  "postId": "64f1a2b3c9e77a0012345678",
+  "sender": "user_123",
+  "message": "This is a comment on the post"
 }
 
 ###
 
-### Test: Get Posts by Sender without sender param (should return 400)
-GET http://localhost:5000/post
+### Get all comments
+GET http://localhost:5000/comments
 
 ###
+
+### Get a comment by ID
+GET http://localhost:5000/comments/64f1b2c3d9e77a0098765432
+
+###
+
+### Get all comments for a specific post
+GET http://localhost:5000/comments?postId=64f1a2b3c9e77a0012345678
+
+###
+
+### Update a comment (full replacement)
+PUT http://localhost:5000/comments/64f1b2c3d9e77a0098765432
+Content-Type: application/json
+
+{
+  "postId": "64f1a2b3c9e77a0012345678",
+  "sender": "user_123",
+  "message": "Updated comment content"
+}
+
+###
+
+### Delete a comment
+DELETE http://localhost:5000/comments/64f1b2c3d9e77a0098765432

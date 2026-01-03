@@ -24,7 +24,11 @@ const addPost = async (req, res) => {
 
 const getAllPosts = async (req, res) => {
   try {
-    const posts = await Post.find().sort({ createdAt: -1 });
+    const filter = {};
+    if (req.query.sender) {
+      filter.sender = req.query.sender;
+    }
+    const posts = await Post.find(filter).sort({ createdAt: -1 });
     res.json(posts);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -38,21 +42,6 @@ const getPostById = async (req, res) => {
       return res.status(404).json({ message: "Post not found" });
     }
     res.json(post);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
-
-const getPostsBySender = async (req, res) => {
-  try {
-    const { sender } = req.query;
-    if (!sender) {
-      return res
-        .status(400)
-        .json({ message: "Sender query parameter is required" });
-    }
-    const posts = await Post.find({ sender }).sort({ createdAt: -1 });
-    res.json(posts);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -87,6 +76,5 @@ module.exports = {
   addPost,
   getAllPosts,
   getPostById,
-  getPostsBySender,
   updatePost,
 };
